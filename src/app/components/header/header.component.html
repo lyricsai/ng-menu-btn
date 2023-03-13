@@ -1,5 +1,12 @@
 <header (window:resize)="onResize()">
-    <span>Logo</span>
-    <button (click)="toggleIsShowNav()" *ngIf="isMobile$">menu</button>
-    <app-nav *ngIf="isShowNav$"></app-nav>
+  <span class="logo">Logo</span>
+  <button
+    (click)="toggleIsShowNav()"
+    *ngIf="isMobile$"
+    class="menu"
+    [class]="isMobile$ && isShowNav$ ? 'isOpen' : ''"
+  >
+    <span></span>
+  </button>
+  <app-nav [hidden]="!isShowNav$" [isShowNav]="isShowNav$"></app-nav>
 </header>
